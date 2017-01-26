@@ -1,0 +1,23 @@
+### IntelliJ ###
+.idea/
+/out/
+/build/
+**/*.iml
+
+### VisualStudio Code ###
+.vscode
+
+### Node ###
+node_modules/
+.sass-cache/
+.npm
+npm-debug.log
+
+### Build dir ###
+server/entry/
+server/webroot/assets/
+server/webroot/*.appcache
+src/css/__SPRITES__/
+
+### Cache file ###
+.gulp-cache

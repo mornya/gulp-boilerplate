@@ -1,0 +1,1 @@
+# mornya-static-boilerplate

@@ -1,0 +1,42 @@
+@charset "UTF-8";
+
+@import "__INCLUDES__/mixins";
+@import "__SPRITES__/spr-coupon";
+@import "__SPRITES__/spr-coupon@2x";
+
+$backgroundColor: #e0e0e0;
+
+body {
+    margin: 0;
+    background-color: $backgroundColor;
+}
+
+div.dog {
+    background: white url("../images/dog.png?v=#{timestamp()}") 0 0 no-repeat;
+    width: 705px;
+    height: 481px;
+}
+
+div.coupon {
+    &.baby {
+        @include spr-coupon("coupon_bg_baby");
+    }
+    &.beauty {
+        @include spr-coupon("coupon_bg_beauty");
+    }
+    &.fashion {
+        @include spr-coupon("coupon_bg_fashion");
+    }
+}
+
+div.coupon-2x {
+    &.baby {
+        @include spr-coupon-2x("coupon_bg_baby");
+    }
+    &.beauty {
+        @include spr-coupon-2x("coupon_bg_beauty");
+    }
+    &.fashion {
+        @include spr-coupon-2x("coupon_bg_fashion");
+    }
+}
