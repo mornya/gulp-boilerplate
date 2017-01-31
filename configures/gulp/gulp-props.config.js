@@ -16,6 +16,7 @@ export default {
 		IMAGES: 'server/webroot/assets/images',
 		SERVER: 'server/entry'
 	},
+	CACHE: '.cache',
 	WEBROOT: 'server/webroot',
 	SERVER: {
 		port: 3000 // express server listening port

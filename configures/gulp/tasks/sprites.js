@@ -30,8 +30,10 @@ gulp.task('sprites', () => {
 
 	let spriteData = gulp.src(`${props.SRC.SPRITES}/**/*.png`)
 		.pipe(spritesmith(spriteOpts));
-	let imgStream = spriteData.img.pipe(gulp.dest(props.DEST.IMAGES));
-	let cssStream = spriteData.css.pipe(gulp.dest(`${props.SRC.CSS}/__SPRITES__`));
+	let imgStream = spriteData.img
+		.pipe(gulp.dest(props.DEST.IMAGES));
+	let cssStream = spriteData.css
+		.pipe(gulp.dest(`${props.SRC.CSS}/__SPRITES__`));
 
 	return mergeStream(imgStream, cssStream);
 });

@@ -10,9 +10,9 @@ const webpackConfig = {
 	devtool: '#inline-source-map',
 	entry: fromJSON(path.resolve('.jsentryrc')),
 	output: {
-		path: __dirname + '/server/webroot/assets/js/',
+		path: path.resolve('server/webroot/assets/js/'),
 		filename: '[name].js',
-		publicPath: '/assetc/js/'
+		publicPath: '/assets/js/'
 	},
 	resolve: {
 		root: [
@@ -29,8 +29,16 @@ const webpackConfig = {
 	module: {
 		loaders: [
 			{
+				test: /\.scss/,
+				loader: 'style!css!sass!postcss'
+			},
+			{
+				test: /\.css/,
+				loader: 'style!css'
+			},
+			{
 				test: /\.js$/,
-				loader: 'babel-loader',
+				loader: 'babel',
 				exclude: /node_modules/,
 				query: {
 					cacheDirectory: true,
@@ -48,7 +56,7 @@ const webpackConfig = {
 	]
 };
 
-gulp.task('webpack:dev', () => {
+gulp.task('webpack:release', () => {
 	return gulp.src([`${props.SRC.JS}/**/*.js`, `!${props.SRC.JS}/__INCLUDES__`])
 		.pipe(webpackStream(webpackConfig, webpackGlobal, (err, stats) => {
 			if (err) {

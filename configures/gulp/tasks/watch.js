@@ -2,9 +2,9 @@ import gulp from 'gulp';
 import gutil from 'gulp-util';
 import props from '../gulp-props.config';
 
-// js watch는 webpack에서 실행
 const watcher = {
-	css: gulp.watch([`${props.SRC.CSS}/**/*.scss`], ['css']),
+	js: gulp.watch(`${props.SRC.JS}/**/*.js`, ['eslint']), // js build/watch는 webpack에서
+	css: gulp.watch(`${props.SRC.CSS}/**/*.scss`, ['css']),
 	html: gulp.watch(`${props.SRC.HTML}/**/*.html`, ['html']),
 	images: gulp.watch(`${props.SRC.IMAGES}/**/*`, ['images']),
 	sprites: gulp.watch(`${props.SRC.SPRITES}/**/*`, ['sprites']),

@@ -1,9 +1,10 @@
+import gutil from 'gulp-util';
 import express from 'express';
 
 const router = express.Router();
 
 router.use((req, res, next) => {
-	console.log('Time:', Date.now().toString());
+	gutil.log('Time:', Date.now().toString());
 	next();
 });
 
