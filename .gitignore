@@ -15,7 +15,5 @@ npm-debug.log
 
 ### Build dir ###
 .cache/
-server/entry/
-server/webroot/assets/
-server/webroot/*.appcache
+server/
 src/css/__SPRITES__/

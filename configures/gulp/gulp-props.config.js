@@ -9,15 +9,14 @@ export default {
 		SERVER: 'configures/server'
 	},
 	DEST: {
-		root: 'server/webroot/assets',
-		JS: 'server/webroot/assets/js',
-		CSS: 'server/webroot/assets/css',
-		HTML: 'server/webroot/assets/html',
-		IMAGES: 'server/webroot/assets/images',
+		root: 'server',
+		JS: 'server/build/js',
+		CSS: 'server/build/css',
+		HTML: 'server/build/html',
+		IMAGES: 'server/build/images',
 		SERVER: 'server/entry'
 	},
 	CACHE: '.cache',
-	WEBROOT: 'server/webroot',
 	SERVER: {
 		port: 3000 // express server listening port
 	},

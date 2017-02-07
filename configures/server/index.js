@@ -4,7 +4,7 @@ import path from 'path';
 import routeDemo from './routes/demo';
 
 const SERVER_PORT = 3000;
-const WEBROOT = path.resolve('server/webroot');
+const WEBROOT = path.resolve('server/build');
 const app = express();
 
 app.listen(SERVER_PORT, () => {

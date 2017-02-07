@@ -10,13 +10,13 @@ const webpackConfig = {
 	devtool: '#inline-source-map',
 	entry: fromJSON(path.resolve('.jsentryrc')),
 	output: {
-		path: path.resolve('server/webroot/assets/js/'),
+		path: path.resolve(props.DEST.JS),
 		filename: '[name].js',
-		publicPath: '/assets/js/'
+		publicPath: '/js/'
 	},
 	resolve: {
 		root: [
-			path.resolve('./src/js')
+			path.resolve(props.SRC.JS)
 		],
 		extensions: [
 			'', '.js'

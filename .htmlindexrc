@@ -1,0 +1,5 @@
+{
+  "basePath": "server/build/html",
+  "outPath": "server/build",
+  "linkPath": "html"
+}

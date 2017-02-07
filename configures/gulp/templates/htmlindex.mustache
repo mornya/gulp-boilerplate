@@ -1,0 +1,68 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="minimal-ui,width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+	<title>Index</title>
+	<link rel="stylesheet" type="text/css" href="css/reset.css" />
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+
+	<style type="text/css">
+		h1{padding:10px 20px;font-size:26px;letter-spacing:0;border:solid #3a4452;border-width:1px 0;background-color:#1b1e1f;color:#fff;font-family:tahoma,serif;}
+		#content{margin:20px 20px 100px}
+		.dir{display:block;padding-bottom:10px}
+		.lst{display:none;padding-bottom:20px}
+		.lst:last-of-type{display:block}
+		h2{margin-top:50px;padding:10px;font-size:14px;letter-spacing:1px;border:1px solid #cc400b;background-color:#ff6633;color:#fff;}
+		h2:first-child{margin-top:0;}
+		h2 i{font-family:verdana,serif;font-size:13px;font-weight:normal;}
+		h2 span{font-size:13px;font-weight:normal;}
+		h3{margin:15px;font-family:'돋움',dotum,serif;font-size:14px;color:#ff6633}
+		table{color:#8b8b8b}
+		tr:hover{cursor:pointer;color:#ff8420;}
+		tr:hover th,tr:hover td{border-bottom:1px solid #ff8420;}
+		th{color:#333;}
+		th, td{padding:10px 15px;border-bottom:1px solid #ddd;text-align:left;font-size:13px;letter-spacing:-1px}
+		.txt_lst{margin:0 25px;}
+		.txt_lst li{list-style:disc;margin-bottom:5px;font-family:'돋움',dotum,serif;font-size:12px;line-height:18px;color:#555}
+	</style>
+</head>
+
+<body>
+<header><h1></h1></header>
+<div id="content">
+	{{#data}}
+	<a href="javascript:" class="dir"><h2>{{path}}</h2></a>
+	<div class="lst">
+		<table border="1">
+			<colgroup>
+				<col style="width:40%"><col>
+			</colgroup>
+			<tbody>
+			{{#files}}
+			<tr onclick="window.open('{{pathname}}/{{filename}}');">
+				<th scope="row">{{title}}</th>
+				<td>{{filename}}</td>
+			</tr>
+			{{/files}}
+			</tbody>
+		</table>
+		{{!--
+		<h3>- Guide -</h3>
+		<ul class="txt_lst">
+			<li>layout에 footer를 하단 고정으로 보여주기 위해서 #wrap에 min-height:100%를 선언 하였고, 상단(#header)의 높이가 유동적인 이슈로 #footer는 구조상 #wrap 형제node(다음)에 위치하였다. <br>(추후 해당 layout의 이슈가 클 경우 footer 하단 고정은 script로 해결하고 layout 수정을 진행할 수 있다.)</li>
+		</ul>
+		--}}
+	</div>
+	{{/data}}
+</div>
+
+<script type="text/javascript">
+	$('h1').html($('head title').html());
+	$('.dir').click(function(e){
+		e.preventDefault();
+		$(this).next('div').toggle();
+	});
+</script>
+</body>
+</html>

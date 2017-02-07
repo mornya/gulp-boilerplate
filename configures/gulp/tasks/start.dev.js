@@ -1,6 +1,7 @@
 import gulp from 'gulp';
 import nodemon from 'gulp-nodemon';
 import browserSync from 'browser-sync';
+import htmlIndex from '../functions/htmlindex';
 import props from '../gulp-props.config';
 
 const nodemonOptions = {
@@ -19,9 +20,11 @@ gulp.task('start:dev', () => {
 	return nodemon(nodemonOptions)
 		.on('start', () => {
 			if (isFirst) {
-				// init browser-sync on server start at first time.
-				browserSync.init(null, bsOptions);
-				isFirst = false;
+				htmlIndex(() => {
+					// init browser-sync on server start at first time.
+					browserSync.init(null, bsOptions);
+					isFirst = false;
+				})
 			}
 		});
 });
