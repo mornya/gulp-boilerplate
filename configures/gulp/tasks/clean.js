@@ -4,7 +4,7 @@ import props from '../gulp-props.config';
 
 gulp.task('clean', () => {
 	return del.sync([
-		// no clean caches
+		props.CACHE,
 		props.DEST.root,
 		`${props.SRC.CSS}/__SPRITES__`
 	]);
