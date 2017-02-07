@@ -8,9 +8,9 @@ const fiOptions = {
 	basepath: `${props.SRC.HTML}/__INCLUDES__` // '@file' for relative path
 };
 
-const fileCache = new GulpFileCache(`${props.CACHE}/gulp-cache-html`);
-
 gulp.task('html', () => {
+	const fileCache = new GulpFileCache(`${props.CACHE}/gulp-cache-html`);
+
 	return gulp.src([`${props.SRC.HTML}/**/*.html`, `!${props.SRC.HTML}/__INCLUDES__/**/*`])
 		.pipe(fileCache.filter())
 		.pipe(fileInclude(fiOptions))

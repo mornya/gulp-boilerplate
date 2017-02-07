@@ -21,9 +21,9 @@ const autoprefixerOptions = {
 	cascade: false
 };
 
-const fileCache = new GulpFileCache(`${props.CACHE}/gulp-cache-css`);
-
 gulp.task('css', () => {
+	const fileCache = new GulpFileCache(`${props.CACHE}/gulp-cache-css`);
+
 	return gulp.src([
 			`${props.SRC.CSS}/**/*.scss`,
 			`!${props.SRC.CSS}/__INCLUDES__/**/*.scss`,

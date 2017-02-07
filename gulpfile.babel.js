@@ -6,9 +6,9 @@ requireDir('./configures/gulp/tasks');
 
 gulp.task('default', (done) => {
 	runSequence(
-		'preset',
 		'eslint',
 		//'clean',
+		'preset',
 		['sprites', 'babelServer'],
 		['html', 'images', 'css'],
 		'webpack:dev',
@@ -20,8 +20,8 @@ gulp.task('default', (done) => {
 
 gulp.task('deploy', (done) => {
 	runSequence(
-		'preset',
 		'clean',
+		'preset',
 		'sprites',
 		['htmlmin', 'imagesmin', 'cssmin'],
 		'webpack:release',

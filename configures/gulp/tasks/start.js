@@ -10,7 +10,7 @@ const nodemonOptions = {
 };
 const bsOptions = {
 	proxy: `http://localhost:${props.SERVER.port}`,
-	files: [props.DEST.root + '/**/*'],
+	files: [`${props.DEST.root}/**/*`],
 	port: props.BS.port
 };
 
