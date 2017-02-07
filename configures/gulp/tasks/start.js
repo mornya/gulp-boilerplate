@@ -10,11 +10,11 @@ const nodemonOptions = {
 };
 const bsOptions = {
 	proxy: `http://localhost:${props.SERVER.port}`,
-	files: [props.WEBROOT + '/**/*'],
+	files: [props.DEST.root + '/**/*'],
 	port: props.BS.port
 };
 
-gulp.task('start:dev', () => {
+gulp.task('start', () => {
 	let isFirst = true;
 
 	return nodemon(nodemonOptions)

@@ -15,30 +15,23 @@ const webpackConfig = {
 		publicPath: '/assets/js/'
 	},
 	resolve: {
-		root: [
-			path.resolve('./src/js')
-		],
-		extensions: [
-			'', '.js'
-		]
-	},
-	eslint: {
-		configFile: '.eslintrc'
+		extensions: ['.js'],
+		modules: [props.SRC.JS, './node_modules']
 	},
 	watch: false,
 	module: {
 		loaders: [
 			{
 				test: /\.scss/,
-				loader: 'style!css!sass!postcss'
+				loader: 'style-loader!css-loader!sass-loader'
 			},
 			{
 				test: /\.css/,
-				loader: 'style!css'
+				loader: 'style-loader!css-loader'
 			},
 			{
 				test: /\.js$/,
-				loader: 'babel',
+				loader: 'babel-loader',
 				exclude: /node_modules/,
 				query: {
 					cacheDirectory: true,

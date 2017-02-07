@@ -9,10 +9,10 @@ gulp.task('default', (done) => {
 		'preset',
 		'eslint',
 		//'clean',
-		['html', 'sprites', 'babelServer'],
-		['images', 'css'],
+		['sprites', 'babelServer'],
+		['html', 'images', 'css'],
 		'webpack:dev',
-		'start:dev',
+		'start',
 		'watch',
 		done
 	);
@@ -22,10 +22,9 @@ gulp.task('deploy', (done) => {
 	runSequence(
 		'preset',
 		'clean',
-		['htmlmin', 'sprites', 'babelServer'],
-		['imagesmin', 'cssmin'],
+		'sprites',
+		['htmlmin', 'imagesmin', 'cssmin'],
 		'webpack:release',
-		'start:release',
 		done
 	);
 });

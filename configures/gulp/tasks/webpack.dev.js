@@ -15,15 +15,8 @@ const webpackConfig = {
 		publicPath: '/js/'
 	},
 	resolve: {
-		root: [
-			path.resolve(props.SRC.JS)
-		],
-		extensions: [
-			'', '.js'
-		]
-	},
-	eslint: {
-		configFile: '.eslintrc'
+		extensions: ['.js'],
+		modules: [props.SRC.JS, './node_modules']
 	},
 	watch: true,
 	module: {
@@ -31,22 +24,22 @@ const webpackConfig = {
 		/*preLoaders: [
 			{
 				test: /\.js$/,
-				loader: 'eslint',
+				loader: 'eslint-loader',
 				exclude: /nodel_modules/
 			}
 		],*/
 		loaders: [
 			{
 				test: /\.scss/,
-				loader: 'style!css!sass!postcss'
+				loader: 'style-loader!css-loader!sass-loader'
 			},
 			{
 				test: /\.css/,
-				loader: 'style!css'
+				loader: 'style-loader!css-loader'
 			},
 			{
 				test: /\.js$/,
-				loader: 'babel',
+				loader: 'babel-loader',
 				exclude: /node_modules/,
 				query: {
 					cacheDirectory: true,
@@ -56,11 +49,7 @@ const webpackConfig = {
 		]
 	},
 	plugins: [
-		new webpackGlobal.optimize.UglifyJsPlugin({
-			compress: {
-				warnings: false
-			}
-		})
+		new webpackGlobal.NoEmitOnErrorsPlugin()
 	]
 };
 
