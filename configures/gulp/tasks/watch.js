@@ -1,5 +1,5 @@
 import gulp from 'gulp';
-import gutil from 'gulp-util';
+import chalk from 'chalk';
 import props from '../gulp-props.config';
 
 const has = Object.prototype.hasOwnProperty;
@@ -15,7 +15,7 @@ gulp.task('watch', () => {
 		babelServer: gulp.watch(`${props.SRC.SERVER}/**/*.js`, ['babelServer'])
 	};
 	let notify = (event) => {
-		gutil.log('File', gutil.colors.yellow(event.path), 'was', gutil.colors.magenta(event.type));
+		console.info('File', chalk.yellow(event.path), 'was', chalk.magenta(event.type));
 	};
 
 	for (let key in watcher) {

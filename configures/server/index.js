@@ -1,4 +1,3 @@
-import gutil from 'gulp-util';
 import express from 'express';
 import path from 'path';
 import routeDemo from './routes/demo';
@@ -8,7 +7,7 @@ const WEBROOT = path.resolve('server/build');
 const app = express();
 
 app.listen(SERVER_PORT, () => {
-	gutil.log('Express listening on port ' + SERVER_PORT);
+	console.info('Express listening on port ' + SERVER_PORT);
 });
 
 app.use('/', express.static(WEBROOT));

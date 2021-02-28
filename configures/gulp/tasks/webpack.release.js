@@ -1,5 +1,4 @@
 import gulp from 'gulp';
-import gutil from 'gulp-util';
 import webpackGlobal from 'webpack';
 import webpackStream from 'webpack-stream';
 import path from 'path';
@@ -53,9 +52,9 @@ gulp.task('webpack:release', () => {
 	return gulp.src([`${props.SRC.JS}/**/*.js`, `!${props.SRC.JS}/__INCLUDES__`])
 		.pipe(webpackStream(webpackConfig, webpackGlobal, (err, stats) => {
 			if (err) {
-				throw new gutil.PluginError('[webpack]', err);
+				throw err;
 			} else {
-				gutil.log('[webpack]', stats.toString({
+				console.info('[webpack]', stats.toString({
 					chunks: false,
 					colors: true
 				}));
